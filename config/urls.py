@@ -24,6 +24,6 @@ urlpatterns = [
     path('contact/', views.contact,  name="contact"),
     path('page1/', views.p1, name="page1"), 
     path('page2/', views.p2, name="page2"),
-    path('', include("accounts/urls.py")),
+    path('', include("accounts.urls")),
 ]
 
