@@ -56,7 +56,8 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR, 'templates' / 'accounts', BASE_DIR / 'templates' / 'static_with_template'],
+        'DIRS': [BASE_DIR, 'templates' / 'accounts',
+                 BASE_DIR / 'templates' / 'static_with_template'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -121,3 +122,6 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [   
     BASE_DIR / "static_with_template" / "static",
 ]
+
+#login path
+LOGIN_URL = 'login'
