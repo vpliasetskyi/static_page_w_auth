@@ -1,34 +1,31 @@
-# Static pages with templates and static files
+# Django Static Page  With Authentication
 
 Create 4 webpages with templates (4 + 1 base template), for every page use a different DaisyUI theme.
 
-Submit repo with markdown file with blocks of code for: 
-* views.py
-* urls.py
-* settings.py (All modified sections only)
-
-Include screenshots for every page.
-
-Use only render, for every page add any of these data  in the main block (include name and values for every element using the context dictionary, use loop for iterables):
-
-* 3 variables with different data types
-* a list of mixed data types of length 6
-* a dictionary with string keys and different data types  values of length 5
+I have upgraded my previous static page templates by adding **Registration** and **Login** functionality. The logic is designed to be simple and seamless:
 
 --------------------------------------------------------
+### 1. The Navbar is the "Dashboard"
+Instead of creating a separate dashboard page, the **Navbar** (in `base.html`) dynamically changes based on your status:
+* **Logged Out State:** Shows the menu + **Register** and **Login** buttons.
+* **Logged In State:** The Register/Login buttons disappear. They are replaced by the **Username** and a **Logout** button.
+* **Universal Access:** Since all pages inherit from `base.html`, this "Dashboard" logic is visible on every page.
 
+### 2. Selective Access Control
+I have added a "Gatekeeper" to protect specific content:
+* **Home Page:** Remains public and accessible to everyone.
+* **Protected Pages:** **Contact**, **Page 1**, and **Page 2** now require an account. If you click them while logged out, you are automatically redirected to the **Login** page.
 ##  Screenshots
 
-### Home Page
-![Home Page](screenshots/home.png)
+### Home Page Logged in
+![Home Page](screenshots/logged_in.png)
 
-### Contact Page
-![Contact Page](screenshots/contact.png)
+### Home Page Logged out
+![Home Page](screenshots/logged_out.png)
 
-### Page 1 
-![Page 1](screenshots/page1.png)
+### Login page
+![Home Page](screenshots/login_page.png)
 
-### Page 2 
-![Page 2](screenshots/page2.png)
-
+### Register page
+![Home Page](screenshots/reg_page.png)
 -----------------------------------------------------------
