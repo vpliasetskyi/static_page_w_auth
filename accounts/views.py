@@ -5,21 +5,6 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 
-def home(request):
-    return render(request, 'home.html')
-
-@login_required
-def contact(request):
-    return render(request, 'contact.html')
-
-@login_required
-def page1(request):
-    return render(request, 'page1.html')
-
-@login_required
-def page2(request):
-    return render(request, 'page2.html')
-
 
 def login_view(request):
     if request.method == 'POST':
@@ -31,7 +16,7 @@ def login_view(request):
             return redirect('home')
         else:
             messages.error(request, 'Invalid username or password.')
-    return render(request, 'login.html')
+    return render(request, 'accounts/login.html')
 
 
 def register_view(request):
@@ -47,11 +32,11 @@ def register_view(request):
             User.objects.create_user(username=username, password=password)
             messages.success(request, 'Account created. Please log in.')
             return redirect('login')
-    return render(request, 'register.html')
+    return render(request, 'accounts/register.html')
 
 
 def logout_view(request):
     logout(request)
-    return redirect('home')
+    return redirect('static_with_template/home')
 
 # Create your views here.
