@@ -5,8 +5,20 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 
-def landing(request):
-    return render(request, 'landing.html')
+def home(request):
+    return render(request, 'home.html')
+
+@login_required
+def contact(request):
+    return render(request, 'contact.html')
+
+@login_required
+def page1(request):
+    return render(request, 'page1.html')
+
+@login_required
+def page2(request):
+    return render(request, 'page2.html')
 
 
 def login_view(request):
@@ -16,7 +28,7 @@ def login_view(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('dashboard')
+            return redirect('home')
         else:
             messages.error(request, 'Invalid username or password.')
     return render(request, 'login.html')
@@ -38,13 +50,8 @@ def register_view(request):
     return render(request, 'register.html')
 
 
-@login_required
-def dashboard(request):
-    return render(request, 'dashboard.html')
-
-
 def logout_view(request):
     logout(request)
-    return redirect('landing.html')
+    return redirect('home')
 
 # Create your views here.
